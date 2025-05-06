@@ -808,11 +808,7 @@ public struct ChatQuery: Equatable, Codable, Streamable, Sendable {
         }
     }
     
-    public enum ReasoningEffort: String, Codable, Equatable, Sendable {
-        case low
-        case medium
-        case high
-    }
+    public typealias ReasoningEffort = String
 
     // See more https://platform.openai.com/docs/guides/structured-outputs/introduction
     public enum ResponseFormat: Codable, Equatable, Sendable {
@@ -1350,4 +1346,10 @@ public struct ChatToolCall: Codable, Equatable {
         self.type = type
         self.function = function
     }
+}
+
+public extension ChatQuery.ReasoningEffort {
+    static let low = "low"
+    static let medium = "medium"
+    static let high = "high"
 }
